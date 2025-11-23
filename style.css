@@ -1,11 +1,34 @@
 /* ===== GLOBAL STYLES ===== */
 body {
-    background: linear-gradient(135deg, #0a0f24, #082b63);
+    background: linear-gradient(135deg, #001f5b, #003b99, #7b0000);
+    background-size: 300% 300%;
+    animation: bgshift 12s ease infinite;
+
     font-family: 'Poppins', sans-serif;
     text-align: center;
     margin: 0;
     padding: 0;
     color: white;
+
+    /* 🔥 Rotating Shield Background */
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/36/Captain_America_Shield.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 500px;
+    animation: shieldRotate 40s linear infinite;
+}
+
+/* Rotating shield background animation */
+@keyframes shieldRotate {
+    0% { background-position: center; transform: rotate(0deg); }
+    100% { background-position: center; transform: rotate(360deg); }
+}
+
+/* Background gradient shift */
+@keyframes bgshift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* ===== HEADING STYLES ===== */
@@ -35,9 +58,11 @@ h2 {
     width: 600px;
     padding: 20px;
     border-radius: 20px;
+
     background: radial-gradient(circle, #d40000, #750000);
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6),
                 0 0 60px rgba(255, 255, 255, 0.4) inset;
+
     animation: pulse 3s infinite ease-in-out;
 }
 
@@ -47,7 +72,7 @@ h2 {
     border: 5px solid white;
 }
 
-/* ===== ANIMATIONS ===== */
+/* Pulse for the image container */
 @keyframes pulse {
     0% { box-shadow: 0 0 20px rgba(255,0,0,0.5); }
     50% { box-shadow: 0 0 40px rgba(255,255,255,0.8); }
@@ -65,3 +90,32 @@ h2 {
     background-clip: content-box, border-box;
 }
 
+/* ========================================================= */
+/* 🔥 ANIMATED TEAM MEMBER CARDS — ONLY THIS WAS ADDED */
+/* ========================================================= */
+
+.team-section p {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    padding: 12px 25px;
+    margin: 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    transition: 0.4s;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+}
+
+/* Hover glow effect */
+.team-section p:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(255,255,255,0.5),
+                0 0 30px rgba(0,128,255,0.7);
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
