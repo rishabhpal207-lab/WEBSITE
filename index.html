@@ -1,39 +1,179 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8">
     <title>Captain America Keychain Project</title>
+    <style>
+
+        /* ===== BACKGROUND WITH ROTATING SHIELD ===== */
+
+        body {
+            background: linear-gradient(135deg, #0a0f24, #082b63);
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Rotating shield image behind everything */
+        .shield-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            background-image: url('shield.png'); /* ← replace with your shield image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            transform: translate(-50%, -50%);
+            opacity: 0.12;
+            z-index: -1;
+            animation: rotateShield 22s linear infinite;
+        }
+
+        @keyframes rotateShield {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to   { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* ===== HEADING ===== */
+        h1 {
+            font-size: 40px;
+            margin-top: 40px;
+            color: #ffffff;
+            text-shadow: 0 0 10px #7dc7ff, 0 0 20px #5594ff;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            width: 80%;
+            margin: 20px auto;
+            font-weight: 300;
+            line-height: 1.5;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            backdrop-filter: blur(4px);
+            box-shadow: 0px 0px 15px rgba(255,255,255,0.2);
+        }
+
+        /* ===== IMAGE CARD ===== */
+        .image-container {
+            margin: 40px auto;
+            width: 600px;
+            padding: 20px;
+            border-radius: 20px;
+            background: radial-gradient(circle, #d40000, #750000);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6),
+                        0 0 60px rgba(255, 255, 255, 0.4) inset;
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        .image-container img {
+            width: 90%;
+            border-radius: 10px;
+            border: 5px solid white;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px rgba(255,0,0,0.5); }
+            50% { box-shadow: 0 0 40px rgba(255,255,255,0.8); }
+            100% { box-shadow: 0 0 20px rgba(255,0,0,0.5); }
+        }
+
+        /* ===== TEAM MEMBERS — ANIMATED CARDS ===== */
+
+        .team-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .member-card {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            width: 180px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.3);
+            backdrop-filter: blur(6px);
+            transition: transform 0.4s, box-shadow 0.4s;
+            animation: fadeIn 1.5s ease forwards;
+            opacity: 0;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px) scale(1.07);
+            box-shadow: 0 0 25px rgba(0,153,255,0.9);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .member-card p {
+            font-size: 18px;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* ===== BORDER STYLE ===== */
+        .hero-border {
+            border: 5px solid transparent;
+            border-radius: 12px;
+            padding: 10px;
+            background-image: linear-gradient(#0a0f24, #0a0f24),
+                              linear-gradient(90deg, #ff0000, #ffffff, #0054a6);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+        }
+
+    </style>
 </head>
 
 <body>
 
-    <h1 class="hero-border">Welcome to our EG PROJECT</h1>
+    <!-- Rotating Shield Background -->
+    <div class="shield-bg"></div>
+
+    <h1 class="hero-border">Captain America Keychain Project</h1>
 
     <div class="image-container">
         <img src="image1.jpeg" alt="Project Image">
     </div>
 
-    <h1 class="hero-border">Captain America Keychain Prototype</h1>
-
-    <h2>
-        This is the image prototype of our project that you are seeing on the keychain.
+    <!-- Standard info user asked earlier -->
+    <h2><b>Objective:</b><br>
+        To design and fabricate a Captain America-themed laser-cut keychain with enhanced aesthetics and structural precision.
     </h2>
 
-    <h2>
-        This project involves designing and fabricating a Captain America–themed keychain
-        that combines aesthetics, mechanical innovation, and digital interactivity.
-        An NFC tag is embedded on the back, programmed to link directly to a functional
-        website created for this project.
+    <h2><b>Innovation:</b><br>
+        Integrating layered acrylic/wood design with optional LED enhancement, ensuring durability, precision cutting, and strong visual impact.
     </h2>
 
-    <h2>
-        The CO₂ laser–cut acrylic structure ensures precision and durability. The integrated
-        NFC tag adds modern functionality, making this a blend of engineering, design,
-        and smart technology.
+    <h2><b>Conclusion:</b><br>
+        The project successfully combines creative design with practical fabrication techniques, resulting in a visually striking and functional keychain.
     </h2>
+
+    <!-- Team Members with animated cards -->
+    <h2>Team Members</h2>
+    <div class="team-container">
+        <div class="member-card"><p>Rishabh Pal</p></div>
+        <div class="member-card"><p>Utkrisht Thaman</p></div>
+        <div class="member-card"><p>Aarush Chudgar</p></div>
+        <div class="member-card"><p>Shriya Bhagwat</p></div>
+        <div class="member-card"><p>Anirudh Arun</p></div>
+    </div>
 
 </body>
 </html>
+
+
 
 
 
